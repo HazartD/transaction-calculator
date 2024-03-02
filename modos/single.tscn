@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b5subq42y1iym"]
+
+[node name="single" type="HBoxContainer"]
+size_flags_vertical = 3
+
+[node name="label" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mode" type="Label" parent="label"]
+layout_mode = 2
+size_flags_vertical = 6
+text = " Amount"
+
+[node name="send" type="Label" parent="label"]
+layout_mode = 2
+size_flags_vertical = 6
+text = " Send"
+
+[node name="commission" type="Label" parent="label"]
+layout_mode = 2
+size_flags_vertical = 6
+text = " Commission"
+
+[node name="receives" type="Label" parent="label"]
+layout_mode = 2
+size_flags_vertical = 6
+text = " Receives"
+
+[node name="button" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mode" type="CheckButton" parent="button"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="send" type="TextEdit" parent="button"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="commission" type="TextEdit" parent="button"]
+layout_mode = 2
+size_flags_vertical = 3
+editable = false
+
+[node name="receives" type="TextEdit" parent="button"]
+layout_mode = 2
+size_flags_vertical = 3
+editable = false

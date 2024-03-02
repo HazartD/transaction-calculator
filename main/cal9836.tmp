@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://dux2irnxqb2ta"]
+
+[ext_resource type="Script" path="res://main/calculadora.gd" id="1_hvt7l"]
+[ext_resource type="PackedScene" uid="uid://b5subq42y1iym" path="res://modos/single.tscn" id="2_0iajo"]
+
+[node name="calculadora" type="VBoxContainer"]
+editor_description = "tenes que poder elegir:
+-pago equitativo
+-porcentajes por personas
+-cantidad por persona(se descuenta del dinero total, osea, los porcentajes individuales se cuentan despues sin tener en cuenta lo que ya se pago)"
+offset_right = 324.0
+offset_bottom = 576.0
+script = ExtResource("1_hvt7l")
+mode = null
+commission = null
+
+[node name="config" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="label" type="VBoxContainer" parent="config"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="modo" type="Label" parent="config/label"]
+layout_mode = 2
+text = " Modo"
+
+[node name="commission" type="Label" parent="config/label"]
+layout_mode = 2
+size_flags_vertical = 6
+text = " Commission"
+
+[node name="money" type="Label" parent="config/label"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = " Your Money
+"
+
+[node name="cost" type="Label" parent="config/label"]
+layout_mode = 2
+size_flags_vertical = 6
+text = " Exact cost"
+
+[node name="percentage" type="Label" parent="config/label"]
+layout_mode = 2
+size_flags_vertical = 6
+text = " Percentage"
+
+[node name="butotn" type="VBoxContainer" parent="config"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="modo" type="OptionButton" parent="config/butotn"]
+layout_mode = 2
+item_count = 2
+selected = 1
+popup/item_0/text = "personalized"
+popup/item_0/id = 0
+popup/item_1/text = "equitable"
+popup/item_1/id = 1
+
+[node name="comision_de_tranferencia" type="OptionButton" parent="config/butotn"]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 2
+selected = 0
+popup/item_0/text = "Paypal 2024"
+popup/item_0/id = 0
+popup/item_1/text = "other"
+popup/item_1/id = 1
+
+[node name="money" type="TextEdit" parent="config/butotn"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="cost" type="TextEdit" parent="config/butotn"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "0.30"
+
+[node name="percentage" type="TextEdit" parent="config/butotn"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "5.4%"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+
+[node name="single" parent="." instance=ExtResource("2_0iajo")]
+layout_mode = 2
+
+[connection signal="item_selected" from="config/butotn/comision_de_tranferencia" to="." method="_on_comision_de_tranferencia_item_selected"]
+[connection signal="text_changed" from="config/butotn/money" to="." method="_on_money_text_changed"]
